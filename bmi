@@ -1,0 +1,34 @@
+def cal_bmi(weight,height):        #creating function calculate bmi
+    return weight/ (height** 2)     #assigning math logic for calculating bmi
+
+def Category(bmi):                  #creating category function to catogorize BMI
+    if bmi<18.5:
+        return "Underweight"
+    elif bmi<25:
+        return "Normal"
+    elif bmi<30:
+        return "Overweight"
+    else:
+        return "Obese"              #using conditions to report the category user falls into!
+    
+def run_code():                                                             #run_code function for the actual function
+    print("Welcome to BMI Calculator")
+    while True:                                                             #repetion of function as long as it is true i.e you enter yes for repeat
+        try:                                                                #give the risky code in try block where exception can occur
+            weight = float(input("Enter Your Weight in kgs: "))
+            height = float(input("Enter Your Height in meters: "))          #inputs of weight and height
+            BMI = cal_bmi(weight,height)                                    #assignging cal_bmi function to BMI variable
+            result = Category(BMI)                                          #assigning category function to result varaible
+            print(f"Your BMI is : {BMI:.2f}")
+            print(f"Your BMI Category is : {result}")                       #using f strings to print result and BMI
+        except ValueError:                                                  #expecting a value error
+            print("Give valid inputs in form of Numbers")
+
+        repeat = str(input("do you want to calculate your BMI again? (Yes/No) :")).lower() #if user wants to repeat the BMI calculator
+        if repeat != 'yes':                                                                #any input other than yes breaks the function
+            break
+
+if __name__=="__main__":                    #only runs the main function i.e the assigned function run_code
+    run_code()                              #calling function run_code
+        
+        
